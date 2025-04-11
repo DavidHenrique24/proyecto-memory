@@ -2,7 +2,6 @@ export default function Acerca() {
   return (
     <div className="bg-gradient-to-br from-black via-gray-900 to-gray-700 items-center text-white">
         <a
-            href="/"
             className="absolute top-0 left-0 m-4 inline-block bg-grey-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-xl transition duration-300"
           >
             Volver
