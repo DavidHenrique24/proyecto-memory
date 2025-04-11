@@ -1,5 +1,6 @@
-export default function Home() {
+import Link from 'next/link';
 
+export default function Home() {
   return (
     <div className="bg-gradient-to-br from-black via-gray-900 to-gray-800 min-h-screen flex items-center justify-center text-white">
       <main className="text-center p-6">
@@ -8,16 +9,18 @@ export default function Home() {
           Pon a prueba tu memoria con este divertido juego de emparejar cartas. Creado como parte de una práctica de Next.js, Hecho por David Henrique.
         </p>
         <div className="flex justify-center items-center mb-6">
-        <img src="https://play-lh.googleusercontent.com/sPHdC6J5W49zfcrKvFNK5PONi-ZW-8vw0z9-GFnn9aegxqoBd4LPJEMp7O5KpRN0oQ" alt=""
-          className="w-100 shadow-md mb-6"
-        />
+          <img
+            src="https://play-lh.googleusercontent.com/sPHdC6J5W49zfcrKvFNK5PONi-ZW-8vw0z9-GFnn9aegxqoBd4LPJEMp7O5KpRN0oQ"
+            alt="Imagen del juego Memory"
+            className="w-100 shadow-md mb-6"
+          />
         </div>
-        <a
-         
+        <Link
+          href="/juego" // Asegúrate de que la ruta "/juego" sea la correcta
           className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-xl transition duration-300"
         >
           Empezar a jugar
-        </a>
+        </Link>
       </main>
     </div>
   );
