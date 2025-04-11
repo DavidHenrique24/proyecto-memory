@@ -16,7 +16,7 @@ export default function Home() {
           />
         </div>
         <Link
-          href="/juego" // Asegúrate de que la ruta "/juego" sea la correcta
+          href="/juego" 
           className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-xl transition duration-300"
         >
           Empezar a jugar
