@@ -1,44 +1,27 @@
-import Link from "next/link"; // Importamos Link de next/link
-
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
+import Link from 'next/link';
 
 export default function Header() {
   return (
-    <header className="bg-gray-800 p-4 shadow-md">
-      <NavigationMenu>
-        <NavigationMenuList className="flex space-x-6 text-white">
-          <NavigationMenuItem>
-            <NavigationMenuTrigger className="font-semibold hover:text-blue-400">
-              Item One
-            </NavigationMenuTrigger>
-            <NavigationMenuLink className="text-sm hover:text-blue-300">
-              <Link href="/juego">Juego</Link> 
-            </NavigationMenuLink>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger className="font-semibold hover:text-blue-400">
-              Item Two
-            </NavigationMenuTrigger>
-            <NavigationMenuLink className="text-sm hover:text-blue-300">
-              <Link href="/acerca"></Link>
-            </NavigationMenuLink>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger className="font-semibold hover:text-blue-400">
-              Item Three
-            </NavigationMenuTrigger>
-            <NavigationMenuLink className="text-sm hover:text-blue-300">
-              <Link href="/item-three">Link</Link>
-            </NavigationMenuLink>
-          </NavigationMenuItem>
-        </NavigationMenuList>
-      </NavigationMenu>
+    <header className="bg-gradient-to-br from-black via-gray-900 to-gray-800 p-4 shadow-md">
+      <div className="max-w-7xl mx-auto flex justify-between items-center">
+        {/* Logo a la izquierda */}
+          <h1 className="text-white text-2xl font-bold">Memory Game</h1>
+     
+
+        {/* Links en el centro */}
+        <nav className="flex space-x-6">
+          <Link href="/" className="text-white hover:text-blue-400 transition duration-300">Home</Link>
+          <Link href="/acerca" className="text-white hover:text-blue-400 transition duration-300">Acerca</Link>
+          <Link href="/juego" className="text-white hover:text-blue-400 transition duration-300">Jugar</Link>
+        </nav>
+        <div className="flex items-center space-x-4">
+          <Link href="/login">
+            <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-xl transition duration-300">
+              Iniciar sesión
+            </button>
+          </Link>
+        </div>
+      </div>
     </header>
   );
 }
