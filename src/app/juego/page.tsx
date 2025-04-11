@@ -5,7 +5,7 @@ export default function Juego() {
           {/* Columna izquierda */}
           <div className="flex flex-col justify-start items-start w-1/2 p-4">
             <a
-              href="/"
+         
               className="absolute top-0 left-0 m-4 inline-block bg-grey-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-xl transition duration-300"
             >
               Volver
@@ -14,7 +14,7 @@ export default function Juego() {
             
             <div className="mb-4 text-center">
             <a
-              href="/"
+        
               className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-xl transition duration-300 "
             >
              Jugar
@@ -43,7 +43,7 @@ export default function Juego() {
           <div className="w-800 flex justify-center items-center p-4">
             <img
               src="https://play-lh.googleusercontent.com/sPHdC6J5W49zfcrKvFNK5PONi-ZW-8vw0z9-GFnn9aegxqoBd4LPJEMp7O5KpRN0oQ"
-              alt="Imagen de juego"
+              alt=""
               className="w-full h-auto "
             />
           </div>
