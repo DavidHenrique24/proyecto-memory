@@ -2,51 +2,51 @@
 
 export const tarjetaPrueba = [
   {
-    nombre: "Teto",
-    imagen: "https://static.wikia.nocookie.net/utau/images/7/7e/Illust_teto.png",
+    nombre: "Link",
+    imagen: "https://i.imgur.com/F6jUcuh.png",
   },
   {
     nombre: "Mario",
-    imagen: "https://upload.wikimedia.org/wikipedia/en/a/a9/MarioNSMBUDeluxe.png",
+    imagen: "https://i.imgur.com/OZfVm7l.png",
   },
   {
     nombre: "Pikachu",
-    imagen: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png",
+    imagen: "https://i.imgur.com/hvdmVD0.png",
   },
   {
-    nombre: "Zelda",
-    imagen: "https://upload.wikimedia.org/wikipedia/en/6/6f/Princess_Zelda_art.png",
+    nombre: "Ness",
+    imagen: "https://i.imgur.com/g4vyRii.png",
   },
   {
-    nombre: "Link",
-    imagen: "https://upload.wikimedia.org/wikipedia/en/8/8e/Link_SSBU.png",
+    nombre: "Captain falcon",
+    imagen: "https://i.imgur.com/NPlfvLG.png",
   },
   {
     nombre: "Kirby",
-    imagen: "https://upload.wikimedia.org/wikipedia/en/5/5a/Kirby.png",
+    imagen: "https://i.imgur.com/Rfrd388.png",
   },
   {
     nombre: "Yoshi",
-    imagen: "https://upload.wikimedia.org/wikipedia/en/e/e1/YoshiMarioParty9.png",
+    imagen: "https://i.imgur.com/xheleUJ.png",
   },
   {
     nombre: "Donkey Kong",
-    imagen: "https://upload.wikimedia.org/wikipedia/en/5/51/Donkey_Kong.png",
+    imagen: "https://i.imgur.com/1Iz5XD2.png",
   },
   {
     nombre: "Samus",
-    imagen: "https://upload.wikimedia.org/wikipedia/en/7/7c/Samus_Aran.png",
+    imagen: "https://i.imgur.com/kf0BWAh.png",
   },
   {
-    nombre: "Sonic",
-    imagen: "https://upload.wikimedia.org/wikipedia/en/5/5f/Sonic_the_Hedgehog.png",
+    nombre: "Jigglypuff",
+    imagen: "https://i.imgur.com/cSd5MJN.png",
   },
   {
-    nombre: "Peach",
-    imagen: "https://upload.wikimedia.org/wikipedia/en/f/f2/Princess_Peach_Stock_Art.png",
+    nombre: "Fox",
+    imagen: "https://i.imgur.com/cMKVl6k.png",
   },
   {
     nombre: "Luigi",
-    imagen: "https://upload.wikimedia.org/wikipedia/en/3/3e/Luigi_NSMBUD.png",
+    imagen: "https://images.wikidexcdn.net/mwuploads/esssbwiki/b/bb/latest/20180613001611/Luigi_SSBU.png",
   },
 ]
