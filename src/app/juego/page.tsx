@@ -1,5 +1,5 @@
 import Link from 'next/link';
-
+import { Tablero } from '@/componentes/GrupoTarjetas';
 export default function Juego() {
   return (
     <main className="bg-gradient-to-br from-black via-gray-900 to-gray-800 ,max-w-screen min-h-screen flex items-center justify-center text-white">
@@ -42,11 +42,7 @@ export default function Juego() {
           </div>
         </div>
         <div className="w-800 flex justify-center items-center p-4">
-          <img
-            src="https://play-lh.googleusercontent.com/sPHdC6J5W49zfcrKvFNK5PONi-ZW-8vw0z9-GFnn9aegxqoBd4LPJEMp7O5KpRN0oQ"
-            alt="Imagen del juego Memory"
-            className="w-full h-auto "
-          />
+          <Tablero />
         </div>
       </div>
     </main>
