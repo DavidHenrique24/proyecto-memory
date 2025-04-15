@@ -1,3 +1,4 @@
+"use client"; //Esto lo pongo por que me lo pide next 
 import { createContext, useContext, useState, ReactNode } from "react"
 
 // Contexto para el contador global
