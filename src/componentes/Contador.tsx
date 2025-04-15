@@ -28,3 +28,12 @@ export function ContadorProvider({ children }: { children: ReactNode }) {
     </ContadorContext.Provider>
   )
 }
+
+// Componente que muestra el total 
+export function TotalClicks() {
+  const { contadorGlobal } = useContadorGlobal(); // Obtenemos el valor global
+
+  return (
+    <p className="bg-gray-700 text-white font-bold text-2xl w-18 h-10 flex justify-center items-center rounded-md mx-auto">{contadorGlobal}</p>
+  );
+}
