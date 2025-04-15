@@ -25,7 +25,7 @@ export default function Acerca() {
         <div className="flex justify-center items-center mt-6">
           <img
             src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHVibmdqOGlzNnE1N3Jhejh1djdncnd1bmFoejl6YTB6Nzlhdmt6diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/d6UbuwWVKJHXO/giphy.gif"
-            alt="Imagen del juego Memory"
+            alt=""
             className="rounded-xl shadow-lg"
             style={{ width: "300px" }}
           />
