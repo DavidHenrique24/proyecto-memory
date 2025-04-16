@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { Tablero } from '@/componentes/GrupoTarjetas';
+import { TotalClicks } from "@/componentes/Contador";
+
 export default function Juego() {
   return (
     <main className="bg-gradient-to-br from-black via-gray-900 to-gray-800 ,max-w-screen min-h-screen flex items-center justify-center text-white">
@@ -37,7 +39,7 @@ export default function Juego() {
               <strong>Clicks:</strong>
             </p>
             <div className="bg-gray-700 text-white font-bold text-2xl w-18 h-10 flex justify-center items-center rounded-md mx-auto">
-              0
+            <TotalClicks />
             </div>
           </div>
         </div>

@@ -11,7 +11,7 @@ export default function Home() {
         <div className="flex justify-center items-center mb-6">
           <img
             src="https://play-lh.googleusercontent.com/sPHdC6J5W49zfcrKvFNK5PONi-ZW-8vw0z9-GFnn9aegxqoBd4LPJEMp7O5KpRN0oQ"
-            alt="Imagen del juego Memory"
+            alt=""
             className="w-100 shadow-md mb-6"
           />
         </div>

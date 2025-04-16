@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/componentes/header";
+import { ContadorProvider } from "@/componentes/Contador";
 
 
 
@@ -27,15 +28,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <header>
-         <Header/>
+          <Header />
         </header>
-        {children}
+  
+        <ContadorProvider>
+          {children}
+        </ContadorProvider>
+  
       </body>
     </html>
   );
+  
 }
