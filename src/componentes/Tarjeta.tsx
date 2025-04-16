@@ -48,7 +48,7 @@ export function Tarjeta({ nombre, imagen }: { nombre: string; imagen: string }) 
       {girada || emparejada ? (
         <img src={imagen} className="w-full h-30 rounded" />
       ) : (
-        <div className="w-full h-30 bg-gray-400 rounded flex items-center justify-center text-2xl font-bold text-white">
+        <div className="w-full h-30  rounded flex items-center justify-center text-2xl font-bold text-white">
           <img src="https://m.media-amazon.com/images/I/51P8Uyw+6UL.jpg" alt="" />
         </div>
       )}
