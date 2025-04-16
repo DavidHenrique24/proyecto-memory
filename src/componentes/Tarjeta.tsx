@@ -67,7 +67,7 @@ export function Tarjeta({ nombre, imagen }: { nombre: string; imagen: string }) 
       </CardHeader>
       <CardContent>
         <CardTitle className="text-center text-sm">{girada || emparejada ? nombre : "???"}</CardTitle>
-        <p className="text-xs">Clicks: {contadorLocal}</p>
+        <p className="text-xs text-center">Clicks: {contadorLocal}</p>
       </CardContent>
     </Card>
   );

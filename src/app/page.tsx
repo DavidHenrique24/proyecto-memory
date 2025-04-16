@@ -4,9 +4,9 @@ export default function Home() {
   return (
     <div className="bg-gradient-to-br from-black via-gray-900 to-gray-800 min-h-screen flex items-center justify-center text-white">
       <main className="text-center p-6">
-        <h1 className="text-5xl font-bold mb-6">Bienvenido a Memory</h1>
+        <h1 className="text-5xl font-bold mb-6">Bienvenido a Memory Smash</h1>
         <p className="text-xl mb-8 max-w-xl mx-auto">
-          Pon a prueba tu memoria con este divertido juego de emparejar cartas. Creado como parte de una práctica de Next.js, Hecho por David Henrique.
+          Pon a prueba tu memoria con este divertido juego basado en los personajes de smash emparejando cartas. Creado como parte de una práctica de Next.js, Hecho por David Henrique.
         </p>
         <div className="flex justify-center items-center mb-6">
           <img

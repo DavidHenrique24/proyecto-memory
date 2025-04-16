@@ -20,7 +20,8 @@ export default function Header() {
     <header className="bg-gradient-to-br from-black via-gray-900 to-gray-800 p-4 shadow-md">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
-        <h1 className="text-white text-2xl font-bold">Memory Game</h1>
+    
+        <h1 className="text-white text-2xl font-bold">Memory Smash</h1>
 
         {/* Navegación */}
         <NavigationMenu>

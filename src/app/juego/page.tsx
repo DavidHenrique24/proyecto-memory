@@ -9,7 +9,7 @@ export default function Juego() {
       
         <div className="flex flex-col justify-start items-start w-1/2 p-4 mt-10">
       
-          <h1 className="text-5xl font-bold mb-6">Memory</h1>
+          <h1 className="text-5xl font-bold mb-6">Memory Smash</h1>
 
           <div className="mb-4 text-center">
             <Link
