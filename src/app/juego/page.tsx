@@ -1,8 +1,8 @@
 'use client';
-
 import { useEffect, useState } from 'react';
 import { Tablero } from '@/componentes/GrupoTarjetas';
 import { TotalClicks } from '@/componentes/Contador';
+import { PuntajeTotal } from '@/componentes/Puntaje';
 
 export default function Juego() {
   const [tiempo, setTiempo] = useState(20);
@@ -45,7 +45,7 @@ export default function Juego() {
               <strong>Puntaje:</strong>
             </p>
             <div className="bg-gray-700 text-white font-bold text-2xl w-18 h-10 flex justify-center items-center rounded-md mx-auto">
-              0
+            <PuntajeTotal />
             </div>
 
             <br />
