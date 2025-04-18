@@ -1,8 +1,8 @@
 "use client"; // Esto lo pide Next.js cuando usamos hooks
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useContadorGlobal } from "@/componentes/Contador";
 import { useState } from "react";
+
 
 // Variable global para registrar cartas giradas
 let cartasGiradas: { nombre: string; setGirada: (valor: boolean) => void }[] = [];
@@ -39,7 +39,7 @@ export function Tarjeta({ nombre, imagen }: { nombre: string; imagen: string }) 
         totalEmparejadas++; // Aumentamos el contador de parejas
 
         if (totalEmparejadas === 6) {
-          await esperar(500); // Pausa para que se vean todas las cartas 
+          await esperar(1000); // Pausa para que se vean todas las cartas 
           alert("¡Ganaste! Felicidades!");
         }
       } else {
