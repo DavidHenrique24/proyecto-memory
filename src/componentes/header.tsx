@@ -19,10 +19,10 @@ export default function Header() {
   return (
     <header className="bg-gradient-to-br from-black via-gray-900 to-gray-800 p-4 shadow-md">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-        {/* Logo */}
-        <h1 className="text-white text-2xl font-bold">Memory Game</h1>
+    
+        <h1 className="text-white text-2xl font-bold">Memory Smash</h1>
 
-        {/* Navegación */}
+        {/* Navegacion y uso de las librerias esas de ShadCN */}
         <NavigationMenu>
           <NavigationMenuList className="flex space-x-6">
             <NavigationMenuItem>
@@ -48,8 +48,6 @@ export default function Header() {
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
-
-        {/* Menú de sesión */}
         <div className="flex items-center space-x-4">
           <Menubar>
             <MenubarMenu>

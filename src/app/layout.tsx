@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/componentes/header";
 import { ContadorProvider } from "@/componentes/Contador";
-
+import { ProveedorPuntaje } from "@/componentes/Puntaje";
 
 
 const geistSans = Geist({
@@ -34,9 +34,12 @@ export default function RootLayout({
         <header>
           <Header />
         </header>
-  
+      {/* El provider para el contador y el puntaje */}
         <ContadorProvider>
-          {children}
+            <ProveedorPuntaje>
+            {children}
+              </ProveedorPuntaje>
+      
         </ContadorProvider>
   
       </body>
