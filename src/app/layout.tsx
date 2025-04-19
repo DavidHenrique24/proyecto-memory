@@ -34,7 +34,7 @@ export default function RootLayout({
         <header>
           <Header />
         </header>
-
+      {/* El provider para el contador y el puntaje */}
         <ContadorProvider>
             <ProveedorPuntaje>
             {children}

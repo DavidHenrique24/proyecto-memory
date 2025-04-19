@@ -5,10 +5,10 @@ import { createContext, useContext, useState, ReactNode } from "react"
 // Contexto para el puntaje global
 const PuntajeContext = createContext({
   puntaje: 0,
-  incrementarPuntaje: () => {}, // Función vacía por defecto
+  incrementarPuntaje: () => {}, // Función vacia
 })
 
-// Hook personalizado para acceder fácil al contexto
+//Para acceder fácil al contexto
 export function usePuntajeGlobal() {
   return useContext(PuntajeContext)
 }
@@ -29,7 +29,7 @@ export function ProveedorPuntaje({ children }: { children: ReactNode }) {
   )
 }
 
-// Componente que muestra el puntaje total
+// Componente que muestra el puntaje total bonito
 export function PuntajeTotal() {
   const { puntaje } = usePuntajeGlobal()
 

@@ -34,11 +34,11 @@ export function Tarjeta({ nombre, imagen }: { nombre: string; imagen: string }) 
         carta2.setGirada(true);
         cartasGiradas = [];
         totalEmparejadas++;
-
-        incrementarPuntaje(); // ✅ Aumentamos el puntaje usando el contexto
+        incrementarPuntaje(); // Aumentamos el puntaje usando el context
 
         if (totalEmparejadas === 6) {
-          alert(`¡Ganaste! Tu puntaje es: ${puntaje + 10}`); // Mostramos el puntaje correcto sumando el siguiente incremento
+          alert(`¡Ganaste! Tu puntaje es: ${puntaje + 10}`); // Mostramos el puntaje correcto sumando 10 
+          window.location.reload(); // Recargamos la pagina
         }
       } else {
         setTimeout(() => {
