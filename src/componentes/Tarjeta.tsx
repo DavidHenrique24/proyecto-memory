@@ -57,6 +57,7 @@ export function Tarjeta({ nombre, imagen }: { nombre: string; imagen: string }) 
       onClick={tocarCarta}
     >
       <CardHeader>
+        {/* los () vacio son funciones anonimas */}
         {(() => {
           if (girada || emparejada) {
             return <img src={imagen} className="w-full h-30 rounded" />;

@@ -88,7 +88,7 @@ export default function Juego() {
         </div>
 
         <div className="w-800 flex justify-center items-center p-4">
-          {/* Tablero le pasa la propiedad desactivado q tiene l valor de contrario de activ */}
+          {/* SI juego iniciado es true se muestra el tablero activo  */}
           {juegoIniciado && <Tablero desactivado={!activo} />}
 
         </div>
