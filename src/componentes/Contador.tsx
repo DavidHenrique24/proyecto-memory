@@ -2,13 +2,14 @@
 import { createContext, useContext, useState, ReactNode } from "react"
 //Se usa reactNode para que el children pueda ser cualquier tipo de componente
 
-// Contexto para el contador global
+
+// Creo un contexto
 const ContadorContext = createContext({
   contadorGlobal: 0,          
   incrementarGlobal: () => {}, // Funcion Vacia
 })
 
-// Para acceder facil al contexto
+// Para acceder facil al contexto desde tarjetas 
 export function useContadorGlobal() {
   return useContext(ContadorContext)
 }
