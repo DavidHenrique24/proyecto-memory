@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react";
 import { Tarjeta } from "./Tarjeta";
 
-function mezclarArray(array: any[]) {
+function mezclarArray(array: { nombre: string; imagen: string }[]) { //Arreglo de objetos
   return array
-    .map((valor) => ({ valor, orden: Math.random() }))
-    .sort((a, b) => a.orden - b.orden)
-    .map((obj) => obj.valor);
+    .map((valor) => ({ valor, orden: Math.random() })) // Asignar un orden aleatorio a cada objeto
+    .sort((a, b) => a.orden - b.orden) // Ordenar por el valor aleatorio
+    .map((obj) => obj.valor) // Devolver solo el valor original
 }
 
+
 export function Tablero({ desactivado = false }) {
-  const [pokemons, setPokemons] = useState<{ nombre: string; imagen: string }[]>([]);
+  const [pokemons, setPokemons] = useState<{ nombre: string; imagen: string }[]>([]); // Arreglo de objetos con nombre e imagen
+  // const [desactivado, setDesactivado] = useState(false); // Estado para desactivar el tablero
 
   useEffect(() => {
     const obtenerPokemones = async () => {
@@ -20,7 +22,7 @@ export function Tablero({ desactivado = false }) {
 
         for (let i = 1; i <= cantidad; i++) {
           promesas.push(
-            fetch(`https://pokeapi.co/api/v2/pokemon/${i}`).then(res => res.json())
+            fetch(`https://pokeapi.co/api/v2/pokemon/${i}`).then(res => res.json()) // Obtener el pokemon por ID
           );
         }
 
