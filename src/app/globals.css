@@ -120,3 +120,23 @@
     @apply bg-background text-foreground;
   }
 }
+
+.fondo-juego {
+  background-image: url('https://wallpapers.com/images/featured/super-smash-bros-ultimate-2hakaxtg0za0l6bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.fondo-juego::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* oscurecer */
+  z-index: 0;
+}
+
+
+
+

@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className="bg-gradient-to-br from-black via-gray-900 to-gray-800 min-h-screen flex items-center justify-center text-white">
+    <div className="bg-black min-h-screen flex items-center justify-center text-white">
       <main className="text-center p-6">
         <h1 className="text-5xl font-bold mb-6">Bienvenido a Memory Smash</h1>
         <p className="text-xl mb-8 max-w-xl mx-auto">
@@ -11,7 +11,7 @@ export default function Home() {
         </p>
         <div className="flex justify-center items-center mb-6">
           <img
-            src="https://play-lh.googleusercontent.com/sPHdC6J5W49zfcrKvFNK5PONi-ZW-8vw0z9-GFnn9aegxqoBd4LPJEMp7O5KpRN0oQ"
+            src="https://nintheorist.com/wp-content/uploads/2018/11/super-smash-bros_ultimate_tema-principal_lifelight.jpg"
             alt=""
             className="w-100 shadow-md mb-6"
           />
