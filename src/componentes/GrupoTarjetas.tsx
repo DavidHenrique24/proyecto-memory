@@ -15,7 +15,6 @@ export function Tablero({ desactivado = false }) {
 
   useEffect(() => {
     const obtenerPokemones = async () => {
-      const start = Date.now();
       try {
         const cantidad = 6; // Solo 10 distintos, porque luego los duplicamos
         const promesas = [];
@@ -40,7 +39,7 @@ export function Tablero({ desactivado = false }) {
       } catch (error) {
         console.error("Error al obtener los pokemones:", error);
       } finally {
-        console.log(`Carga terminada en ${(Date.now() - start) / 1000}s`);
+        console.log("Carga con exito"); 
       }
     };
 
