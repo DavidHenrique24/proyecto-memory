@@ -5,7 +5,7 @@ export default function Acerca() {
     <div className="bg-gradient-to-br from-black via-gray-900 to-gray-700 items-center text-white">
       <div className="p-6 w-full max-w-5xl mx-auto text-center">
         <img
-          src="https://www.tresxics.com/wp-content/uploads/2020/03/memory-game-to-print-tresxics.jpg"
+          src="https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_SuperSmashBrosUltimate_02.jpg"
           alt=""
           className="w-full h-auto rounded-xl shadow-md mb-6"
         />

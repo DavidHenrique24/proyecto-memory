@@ -80,20 +80,19 @@ export default function Juego() {
   }
 
   return (
-    <main className="bg-gradient-to-br from-black via-gray-900 to-gray-800 max-w-screen min-h-screen flex items-center justify-center text-white">
-      <div className="flex w-full max-w-6xl mx-auto p-6">
-        <div className="flex flex-col justify-start items-start w-1/2 p-4 mt-10">
-          <h1 className="text-5xl font-bold mb-6">Memory Smash</h1>
-          {contenidoIzquierda}
-        </div>
-
-        <div className="w-800 flex justify-center items-center p-4">
-          {/* SI juego iniciado es true se muestra el tablero activo  */}
-          {juegoIniciado && <Tablero desactivado={!activo} />}
-
-        </div>
+    <main className="fondo-juego max-w-screen min-h-screen flex items-center justify-center text-white relative">
+    <div className="relative z-10 flex w-full max-w-6xl mx-auto p-6">
+      <div className="flex flex-col justify-start items-start w-1/2 p-4 mt-10">
+        <h1 className="text-5xl font-bold mb-6">Memory Smash</h1>
+        {contenidoIzquierda}
       </div>
-    </main>
+  
+      <div className="w-800 flex justify-center items-center p-4">
+        {juegoIniciado && <Tablero desactivado={!activo} />}
+      </div>
+    </div>
+  </main>
+  
   );
 }
 

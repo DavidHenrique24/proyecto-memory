@@ -1,51 +1,53 @@
-'use client'; // Esto lo pide Next.js cuando usamos hooks
+'use client';
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useContadorGlobal } from "@/componentes/Contador";
 import { useState } from "react";
 import { usePuntajeGlobal } from "@/componentes/Puntaje";
 
-// Variable global para registrar cartas giradas
-// Se inicializa como un array vacío 
+// Variables globales
 let cartasGiradas: { nombre: string; setGirada: (valor: boolean) => void }[] = []; 
 let totalEmparejadas = 0;
+let bloqueo = false; // Bloqueo global
 
 export function Tarjeta({ nombre, imagen }: { nombre: string; imagen: string }) {
-  const [contadorLocal, setContadorLocal] = useState(0); // Contador de esta tarjeta
-  const [girada, setGirada] = useState(false); // Estado de giro
-  const [emparejada, setEmparejada] = useState(false); // Estado de emparejamiento
-  const { incrementarPuntaje, puntaje } = usePuntajeGlobal(); // Acceso al contexto del puntaje
-  const { incrementarGlobal } = useContadorGlobal(); // Contador total en el contexto
-
+  const [contadorLocal, setContadorLocal] = useState(0);
+  const [girada, setGirada] = useState(false);
+  const [emparejada] = useState(false);
+  const { incrementarPuntaje, puntaje } = usePuntajeGlobal();
+  const { incrementarGlobal } = useContadorGlobal();
 
   const tocarCarta = () => {
-    if (girada || emparejada) return; // Si ya está girada, no hacer nada
+    if (girada || emparejada || bloqueo) return; // Si está girada, emparejada o bloqueada, no hacer nada
 
-    setContadorLocal(contadorLocal + 1); // Aumentamos contador local de clicks
-    incrementarGlobal(); // Aumentamos contador global de clicks
-    setGirada(true); // Giramos la carta
-
-    cartasGiradas.push({ nombre, setGirada }); // Añadimos la carta a la lista de giradas
+    setContadorLocal(contadorLocal + 1);
+    incrementarGlobal();
+    setGirada(true);
+    cartasGiradas.push({ nombre, setGirada });
 
     if (cartasGiradas.length === 2) {
+      bloqueo = true; // Activamos el bloqueo
+
       const [carta1, carta2] = cartasGiradas;
+
       if (carta1.nombre === carta2.nombre) {
-        setEmparejada(true);
         carta1.setGirada(true);
         carta2.setGirada(true);
-        cartasGiradas = [];
         totalEmparejadas++;
-        incrementarPuntaje(); // Aumentamos el puntaje usando el context
+        incrementarPuntaje();
+        cartasGiradas = [];
+        bloqueo = false; // Desbloqueamos inmediatamente si hay coincidencia
 
         if (totalEmparejadas === 6) {
-          alert(`¡Ganaste! Tu puntaje es: ${puntaje + 10}`); // Mostramos el puntaje correcto sumando 10 
-          window.location.reload(); // Recargamos la pagina
+          alert(`¡Ganaste! Tu puntaje es: ${puntaje + 10}`);
+          window.location.reload();
         }
       } else {
         setTimeout(() => {
           carta1.setGirada(false);
           carta2.setGirada(false);
           cartasGiradas = [];
+          bloqueo = false; // Desbloqueamos después de ocultarlas
         }, 500);
       }
     }
@@ -57,7 +59,6 @@ export function Tarjeta({ nombre, imagen }: { nombre: string; imagen: string }) 
       onClick={tocarCarta}
     >
       <CardHeader>
-        {/* los () vacio son funciones anonimas */}
         {(() => {
           if (girada || emparejada) {
             return <img src={imagen} className="w-full h-30 rounded" />;
@@ -72,13 +73,7 @@ export function Tarjeta({ nombre, imagen }: { nombre: string; imagen: string }) 
       </CardHeader>
       <CardContent>
         <CardTitle className="text-center text-sm">
-          {(() => {
-            if (girada || emparejada) {
-              return nombre;
-            } else {
-              return "???";
-            }
-          })()}
+          {(() => (girada || emparejada ? nombre : "???"))()}
         </CardTitle>
         <p className="text-xs text-center">Clicks: {contadorLocal}</p>
       </CardContent>
