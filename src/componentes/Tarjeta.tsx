@@ -13,7 +13,7 @@ let bloqueo = false; // Bloqueo global
 export function Tarjeta({ nombre, imagen }: { nombre: string; imagen: string }) {
   const [contadorLocal, setContadorLocal] = useState(0);
   const [girada, setGirada] = useState(false);
-  const [emparejada, setEmparejada] = useState(false);
+  const [emparejada] = useState(false);
   const { incrementarPuntaje, puntaje } = usePuntajeGlobal();
   const { incrementarGlobal } = useContadorGlobal();
 
