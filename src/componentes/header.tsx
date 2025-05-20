@@ -1,28 +1,40 @@
-import Link from 'next/link'
-import {
-  Menubar,
-  MenubarContent,
-  MenubarItem,
-  MenubarMenu,
-  MenubarSeparator,
-  MenubarTrigger,
-} from "@/components/ui/menubar"
+"use client"
 
+import { useEffect, useState } from "react"
+import Link from "next/link"
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu"
+import { Button } from "@/components/ui/button"
+
+interface User {
+  email: string
+}
 
 export default function Header() {
+  const [user, setUser] = useState<User | null>(null)
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user")
+    if (storedUser) {
+      setUser(JSON.parse(storedUser))
+    }
+  }, [])
+
+  const handleLogout = () => {
+    localStorage.removeItem("user")
+    setUser(null)
+    window.location.href = "/"
+  }
+
   return (
     <header className="bg-gradient-to-br from-black via-gray-900 to-gray-800 p-4 shadow-md">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-    
         <h1 className="text-white text-2xl font-bold">Memory Smash</h1>
 
-        {/* Navegacion y uso de las librerias esas de ShadCN */}
         <NavigationMenu>
           <NavigationMenuList className="flex space-x-6">
             <NavigationMenuItem>
@@ -48,20 +60,32 @@ export default function Header() {
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
-        <div className="flex items-center space-x-4">
-          <Menubar>
-            <MenubarMenu>
-              <MenubarTrigger>imagen</MenubarTrigger>
-              <MenubarContent>
-                <MenubarItem>Iniciar sesión</MenubarItem>
-                <MenubarSeparator />
-                <MenubarItem>Registrarse</MenubarItem>
-                <MenubarSeparator />
-                <MenubarItem>Ranking</MenubarItem>
-          
-              </MenubarContent>
-            </MenubarMenu>
-          </Menubar>
+
+        <div className="flex items-center space-x-3">
+          {user ? (
+            <>
+              <span className="text-white">Hola, {user.email}</span>
+              <Button
+                onClick={handleLogout}
+                className="bg-red-600 hover:bg-red-900 text-white"
+              >
+                Cerrar sesión
+              </Button>
+            </>
+          ) : (
+            <>
+              <Link href="/login">
+                <Button className="bg-gray text-white border-white hover:bg-white hover:text-black">
+                  Iniciar sesión
+                </Button>
+              </Link>
+              <Link href="/register">
+                <Button className="bg-blue-600 hover:bg-blue-900 text-white">
+                  Registrarse
+                </Button>
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </header>
