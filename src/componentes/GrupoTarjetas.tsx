@@ -1,55 +1,67 @@
-import { useEffect, useState } from "react";
-import { Tarjeta } from "./Tarjeta";
+import { useEffect, useState } from "react"; 
+import { Tarjeta } from "./Tarjeta"; 
 
-function mezclarArray(array: { nombre: string; imagen: string }[]) { //Arreglo de objetos
-  return array
-    .map((valor) => ({ valor, orden: Math.random() })) // Asignar un orden aleatorio a cada objeto
-    .sort((a, b) => a.orden - b.orden) // Ordenar por el valor aleatorio
-    .map((obj) => obj.valor) // Devolver solo el valor original
+// Definimos la interfaz TarjetaTipo que describe la estructura de cada tarjeta
+interface TarjetaTipo {
+  nombre: string;  
+  imagen: string;  
 }
 
+// Función para mezclar aleatoriamente un array de tarjetas
+function mezclarArray(array: TarjetaTipo[]): TarjetaTipo[] {
+  return array
+    // Creamos un array temporal que añade un número aleatorio 
+    .map((valor) => ({ valor, orden: Math.random() })) 
+    // Ordenamos el array según el número aleatorio para mezclarlo
+    .sort((a, b) => a.orden - b.orden)
+    // Finalmente devolvemos solo los valores originales ya mezclados
+    .map((obj) => obj.valor);
+}
 
-export function Tablero({ desactivado = false }) {
-  const [pokemons, setPokemons] = useState<{ nombre: string; imagen: string }[]>([]); // Arreglo de objetos con nombre e imagen
-  // const [desactivado, setDesactivado] = useState(false); // Estado para desactivar el tablero
+// Interfaz para las props del componente Tablero
+interface TableroProps {
+  desactivado?: boolean; 
+}
 
+// Componente principal Tablero
+export function Tablero({ desactivado = false }: TableroProps) {
+  // Estado para almacenar las tarjetas que se mostrarán
+  const [tarjetas, setTarjetas] = useState<TarjetaTipo[]>([]);
+
+  // useEffect para ejecutar una función cuando el componente se monta (solo una vez [])
   useEffect(() => {
-    const obtenerPokemones = async () => {
+    // Función async para obtener las tarjetas desde una API
+    const obtenerTarjetas = async () => {
       try {
-        const cantidad = 6; // Solo 10 distintos, porque luego los duplicamos
-        const promesas = [];
-
-        for (let i = 1; i <= cantidad; i++) {
-          promesas.push(
-            fetch(`https://pokeapi.co/api/v2/pokemon/${i}`).then(res => res.json()) // Obtener el pokemon por ID
-          );
-        }
-
-        const resultados = await Promise.all(promesas);
-
-        const pokemonsFormateados = resultados.map(pokemon => ({
-          nombre: pokemon.name,
-          imagen: pokemon.sprites.front_default,
-        }));
-
-        const duplicados = [...pokemonsFormateados, ...pokemonsFormateados]; // duplicar
-        const mezclados = mezclarArray(duplicados); // mezclar
-
-        setPokemons(mezclados);
+        // Hacemos fetch a la API que devuelve las tarjetas
+        const response = await fetch("https://cuddly-space-cod-pjpjp9prp5qg3rxxr-8000.app.github.dev/api/tarjetas");
+        const data = await response.json();
+        // Tomamos las primeras 6 tarjetas del resultado (o un array vacío si no hay)
+        const seleccionadas: TarjetaTipo[] = data.tarjetas?.slice(0, 6) || [];
+        // Duplicamos las tarjetas para hacer parejas 
+        const duplicados = [...seleccionadas, ...seleccionadas];
+        // Mezclamos el array duplicado para que el orden sea aleatorio
+        const mezclados = mezclarArray(duplicados);
+        setTarjetas(mezclados);
       } catch (error) {
-        console.error("Error al obtener los pokemones:", error);
-      } finally {
-        console.log("Carga con exito"); 
+        // Si ocurre un error, lo mostramos en consola
+        console.error("Error al obtener las tarjetas:", error);
       }
     };
 
-    obtenerPokemones();
-  }, []);
+    obtenerTarjetas(); 
+  }, []); 
+
 
   return (
-    <section className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 p-4 justify-items-center ${desactivado ? 'pointer-events-none opacity-50' : ''}`}>
-      {pokemons.map((pokemon, index) => (
-        <Tarjeta key={index} nombre={pokemon.nombre} imagen={pokemon.imagen} />
+    <section
+      className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 p-4 justify-items-center ${
+        desactivado ? "pointer-events-none opacity-50" : "" // Si está desactivado, no se puede interactuar
+      }`}
+    >
+      {/* Recorremos el array de tarjetas para mostrar un componente Tarjeta por cada una */}
+      {tarjetas.map((tarjeta, index) => (
+        <Tarjeta key={index} nombre={tarjeta.nombre} imagen={tarjeta.imagen} />
       ))}
     </section>
   );
