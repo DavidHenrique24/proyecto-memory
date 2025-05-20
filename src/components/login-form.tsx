@@ -1,13 +1,12 @@
 "use client"
 
 import { useState } from "react"
-import { useRouter } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import Link from "next/link"
-import { users } from "../bd/users"
+import {users} from "../bd/users"
 
 
 export function LoginForm({
@@ -17,7 +16,6 @@ export function LoginForm({
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
-
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
