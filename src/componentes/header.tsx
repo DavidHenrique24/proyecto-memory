@@ -10,8 +10,12 @@ import {
 } from "@/components/ui/navigation-menu"
 import { Button } from "@/components/ui/button"
 
+interface User {
+  email: string
+}
+
 export default function Header() {
-  const [user, setUser] = useState<any>(null)
+  const [user, setUser] = useState<User | null>(null)
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user")
@@ -23,7 +27,7 @@ export default function Header() {
   const handleLogout = () => {
     localStorage.removeItem("user")
     setUser(null)
-    window.location.href = "/" // redirigir a inicio
+    window.location.href = "/"
   }
 
   return (
@@ -31,7 +35,6 @@ export default function Header() {
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <h1 className="text-white text-2xl font-bold">Memory Smash</h1>
 
-        {/* Menú de navegación */}
         <NavigationMenu>
           <NavigationMenuList className="flex space-x-6">
             <NavigationMenuItem>
@@ -58,7 +61,6 @@ export default function Header() {
           </NavigationMenuList>
         </NavigationMenu>
 
-        {/* Botones de sesión o nombre del usuario */}
         <div className="flex items-center space-x-3">
           {user ? (
             <>
