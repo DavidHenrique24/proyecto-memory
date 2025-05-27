@@ -23,7 +23,7 @@ export function LoginForm({
       const res = await fetch("https://cuddly-space-cod-pjpjp9prp5qg3rxxr-8000.app.github.dev/api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email, password}),
       })
 
       if (!res.ok) {
@@ -32,9 +32,12 @@ export function LoginForm({
       }
 
          const userFound = await res.json()
+      console.log("Usuario logueado:", userFound)
       localStorage.setItem("user", JSON.stringify(userFound))
       localStorage.setItem("email", email) // Guarda solo el email
-      window.location.href = "/"
+      
+
+    
     } catch (err) {
       setError("Error de conexión con el servidor.")
     }
