@@ -17,7 +17,7 @@ export default function Juego() {
       const intervalo = setInterval(() => {
         setTiempo((t) => t - 1);
       }, 1000);
-      return () => clearInterval(intervalo); //Clear inteval lo detiene
+      return () => clearInterval(intervalo); 
     } else {
       setActivo(false);
     }
