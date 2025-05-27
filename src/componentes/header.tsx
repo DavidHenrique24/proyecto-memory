@@ -10,23 +10,24 @@ import {
 } from "@/components/ui/navigation-menu"
 import { Button } from "@/components/ui/button"
 
-interface User {
+interface email {
   email: string
 }
 
 export default function Header() {
-  const [user, setUser] = useState<User | null>(null)
+ const [email, setEmail] = useState<string | null>(null)
 
   useEffect(() => {
-    const storedUser = localStorage.getItem("user")
-    if (storedUser) {
-      setUser(JSON.parse(storedUser))
+    const storedEmail = localStorage.getItem("email")
+    if (storedEmail) {
+      setEmail(storedEmail)
     }
   }, [])
 
   const handleLogout = () => {
-    localStorage.removeItem("user")
-    setUser(null)
+    localStorage.removeItem("email")
+    localStorage.removeItem("email") 
+    setEmail(null)
     window.location.href = "/"
   }
 
@@ -61,10 +62,10 @@ export default function Header() {
           </NavigationMenuList>
         </NavigationMenu>
 
-        <div className="flex items-center space-x-3">
-          {user ? (
+       <div className="flex items-center space-x-3">
+          {email ? (
             <>
-              <span className="text-white">Hola, {user.email}</span>
+              <span className="text-white">Hola, {email}</span>
               <Button
                 onClick={handleLogout}
                 className="bg-red-600 hover:bg-red-900 text-white"

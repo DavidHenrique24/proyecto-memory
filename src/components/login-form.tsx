@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import Link from "next/link"
-import {users} from "../bd/users"
+
 
 
 export function LoginForm({
@@ -17,19 +17,30 @@ export function LoginForm({
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    const userFound = users.find(
-      (u) => u.email === email && u.password === password
-    )
+    try {
+      const res = await fetch("https://cuddly-space-cod-pjpjp9prp5qg3rxxr-8000.app.github.dev/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      })
 
-    if (userFound) {
+      if (!res.ok) {
+        setError("Email o contraseña incorrectos.")
+        return
+      }
+
+         const userFound = await res.json()
       localStorage.setItem("user", JSON.stringify(userFound))
+      localStorage.setItem("email", email) // Guarda solo el email
       window.location.href = "/"
-    } else {
-      setError("Email o contraseña incorrectos.")
+    } catch (err) {
+      setError("Error de conexión con el servidor.")
     }
+
+    
   }
 
   return (
