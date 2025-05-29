@@ -17,34 +17,31 @@ export function LoginForm({
 
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+  e.preventDefault()
 
-    try {
-      const res = await fetch("https://cuddly-space-cod-pjpjp9prp5qg3rxxr-8000.app.github.dev/api/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password}),
-      })
+  try {
+    const res = await fetch("https://cuddly-space-cod-pjpjp9prp5qg3rxxr-8000.app.github.dev/api/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    })
 
-      if (!res.ok) {
-        setError("Email o contraseña incorrectos.")
-        return
-      }
-
-         const userFound = await res.json()
-      console.log("Usuario logueado:", userFound)
-      localStorage.setItem("user", JSON.stringify(userFound))
-      localStorage.setItem("email", email) // Guarda solo el email
-      window.location.href = "/" 
-      
-
-    
-    } catch (err) {
-      setError("Error de conexión con el servidor.")
+    if (!res.ok) {
+      setError("Email o contraseña incorrectos.")
+      return
     }
 
-    
+    const userFound = await res.json()
+    console.log("Usuario logueado:", userFound)
+    localStorage.setItem("user", JSON.stringify(userFound))
+    localStorage.setItem("email", email)
+    window.location.href = "/"
+
+  } catch {
+    setError("Error de conexión con el servidor.")
   }
+}
+
 
   return (
     <form
