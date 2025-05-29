@@ -18,28 +18,29 @@ export function RegisterForm({
   const [success, setSuccess] = useState("")
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setError("")
-    setSuccess("")
-    try {
-      const res = await fetch("https://cuddly-space-cod-pjpjp9prp5qg3rxxr-8000.app.github.dev/api/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: name.trim(),
-          role: "user",
-          email,
-          password,
-          password_confirmation: password
-        }),
-      })
+  e.preventDefault()
+  setError("")
+  setSuccess("")
+  try {
+    await fetch("https://cuddly-space-cod-pjpjp9prp5qg3rxxr-8000.app.github.dev/api/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: name.trim(),
+        role: "user",
+        email,
+        password,
+        password_confirmation: password
+      }),
+    })
 
-         window.location.href = "/login"
+    window.location.href = "/login"
 
-    } catch {
-      setError("Error de conexión con el servidor.")
-    }
+  } catch {
+    setError("Error de conexión con el servidor.")
   }
+}
+
 
   return (
     <form className={cn("flex flex-col gap-6", className)} {...props} onSubmit={handleSubmit}>
