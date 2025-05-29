@@ -35,6 +35,9 @@ export function LoginForm({
     console.log("Usuario logueado:", userFound)
     localStorage.setItem("user", JSON.stringify(userFound))
     localStorage.setItem("email", email)
+    if (userFound.token) {
+      localStorage.setItem("token", userFound.token)
+    }
     window.location.href = "/"
 
   } catch {
