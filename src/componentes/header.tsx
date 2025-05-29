@@ -31,10 +31,9 @@ export default function Header() {
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <h1 className="text-white text-2xl font-bold">Memory Smash</h1>
 
-  
-          {email ? (
-            <>
-              <div className="flex items-center space-x-6">
+        {email ? (
+          <>
+            <div className="flex items-center space-x-6">
               <NavigationMenu>
                 <NavigationMenuList className="flex space-x-6">
                   <NavigationMenuItem>
@@ -60,32 +59,32 @@ export default function Header() {
                   </NavigationMenuItem>
                 </NavigationMenuList>
               </NavigationMenu>
-              </div>
+            </div>
 
-              <div className="flex items-center space-x-3">
-                <span className="text-white">Hola, {email}</span>
-                <Button
-                  onClick={handleLogout}
-                  className="bg-red-600 hover:bg-red-900 text-white"
-                >
-                  Cerrar sesión
-                </Button>
-              </div>
-            </>
-          ) : (
-            <>
-              <Link href="/login">
-                <Button className="bg-gray text-white border-white hover:bg-white hover:text-black">
-                  Iniciar sesión
-                </Button>
-              </Link>
-              <Link href="/register">
-                <Button className="bg-blue-600 hover:bg-blue-900 text-white">
-                  Registrarse
-                </Button>
-              </Link>
-            </>
-          )}
+            <div className="flex items-center space-x-3">
+              <span className="text-white">Hola, {email}</span>
+              <Button
+                onClick={handleLogout}
+                className="bg-red-600 hover:bg-red-900 text-white"
+              >
+                Cerrar sesión
+              </Button>
+            </div>
+          </>
+        ) : (
+          <div className="flex space-x-2">
+            <Link href="/login">
+              <Button className="bg-gray text-white border-white hover:bg-white hover:text-black">
+                Iniciar sesión
+              </Button>
+            </Link>
+            <Link href="/register">
+              <Button className="bg-blue-600 hover:bg-blue-900 text-white">
+                Registrarse
+              </Button>
+            </Link>
+          </div>
+        )}
       </div>
     </header>
   )
