@@ -48,7 +48,7 @@ export function Tarjeta({ nombre, imagen }: { nombre: string; imagen: string }) 
           carta2.setGirada(false);
           cartasGiradas = [];
           bloqueo = false; // Desbloqueamos después de ocultarlas
-        }, 500);
+        }, 1000);
       }
     }
   };

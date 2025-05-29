@@ -14,6 +14,7 @@ export default function RegisterPage() {
       <div className="max-w-md w-full bg-gradient-to-br from-black via-gray-900 to-gray-800 bg-opacity-90 p-8 rounded-2xl shadow-lg text-white">
         <RegisterForm />
       </div>
+      
     </main>
   )
 }
