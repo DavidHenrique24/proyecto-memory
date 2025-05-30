@@ -10,16 +10,16 @@ export default function Juego() {
   const [activo, setActivo] = useState(false);
   const [juegoIniciado, setJuegoIniciado] = useState(false);
 
-  useEffect(() => {
-    if (!activo) return;
 
+  useEffect(() => {
+    if (!activo) return; // Si el juego no está activo
     if (tiempo > 0) {
       const intervalo = setInterval(() => {
-        setTiempo((t) => t - 1);
+        setTiempo((t) => t - 1); 
       }, 1000);
-      return () => clearInterval(intervalo); 
+      return () => clearInterval(intervalo);  // Limpiamos el intervalo al desmontar el componente 
     } else {
-      setActivo(false);
+      setActivo(false); // Cuando el tiempo llega a 0, desactivamos el juego
     }
   }, [tiempo, activo]);
 

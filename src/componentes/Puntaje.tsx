@@ -13,7 +13,7 @@ export function usePuntajeGlobal() {
   return useContext(PuntajeContext)
 }
 
-// Componente proveedor que envuelve los componentes (se pone en layout)
+// Componente proveedor que envuelve los componentes 
 export function ProveedorPuntaje({ children }: { children: ReactNode }) {
   const [puntaje, setPuntaje] = useState(0) // Estado para el puntaje
 

@@ -50,6 +50,13 @@ export default function Header() {
                       </NavigationMenuLink>
                     </Link>
                   </NavigationMenuItem>
+                    <NavigationMenuItem>
+                    <Link href="/games" passHref legacyBehavior>
+                      <NavigationMenuLink className="text-white hover:text-blue-400 transition duration-300">
+                        Partidas
+                      </NavigationMenuLink>
+                    </Link>
+                  </NavigationMenuItem>
                   <NavigationMenuItem>
                     <Link href="/juego" passHref legacyBehavior>
                       <NavigationMenuLink className="text-white hover:text-blue-400 transition duration-300">
@@ -58,6 +65,7 @@ export default function Header() {
                     </Link>
                   </NavigationMenuItem>
                 </NavigationMenuList>
+                
               </NavigationMenu>
             </div>
 
